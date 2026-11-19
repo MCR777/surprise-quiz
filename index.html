@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>🎁 挚友默契大考验 — 答满五题解锁神秘惊喜</title>
+  <meta name="description" content="一共 5 道关于我的小问题，回答满 5 题即可解锁专属神秘惊喜！" />
+  <style>
+    :root {
+      --bg1: #fff8f1;
+      --bg2: #ffe9d6;
+      --card: #ffffff;
+      --text: #1f2328;
+      --sub: #656d76;
+      --accent: #ff5c35;
+      --accent2: #ff942e;
+      --gold: #f59e0b;
+      --border: #f0e4d8;
+      --shadow: 0 14px 40px rgba(255, 92, 53, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 100%);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .app {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 16px env(safe-area-inset-bottom, 20px);
+    }
+
+    .screen {
+      display: none;
+      width: 100%;
+      max-width: 430px;
+      animation: fadeUp 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 28px 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff1e6;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .gift-hero {
+      width: 92px;
+      height: 92px;
+      margin: 4px auto 18px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #ff7a45, #ff4d4f);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      box-shadow: 0 12px 28px rgba(255, 77, 79, 0.28);
+      animation: floatGift 2.4s ease-in-out infinite;
+    }
+
+    @keyframes floatGift {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(-3deg); }
+    }
+
+    h1 {
+      font-size: 25px;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.3;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: var(--sub);
+      text-align: center;
+      line-height: 1.65;
+      margin-bottom: 22px;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #fff9ec, #fff0db);
+      border: 1px dashed #f5b963;
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: #8a4b08;
+      line-height: 1.6;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      width: 100%;
+      border: none;
+      border-radius: 16px;
+      padding: 16px 20px;
+      font-size: 17px;
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 24px rgba(255, 92, 53, 0.34);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.97);
+    }
+
+    .btn-secret {
+      background: linear-gradient(135deg, #7c3aed, #ec4899);
+      box-shadow: 0 10px 26px rgba(124, 58, 237, 0.35);
+      animation: pulseBtn 1.5s infinite;
+    }
+
+    @keyframes pulseBtn {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    .footnote {
+      text-align: center;
+      font-size: 12px;
+      color: #9ca3af;
+      margin-top: 14px;
+    }
+
+    /* Quiz screen */
+    .progress-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--sub);
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: #f3ece4;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 22px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 20%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 999px;
+      transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .q-title {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.45;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .opt-btn {
+      width: 100%;
+      text-align: left;
+      background: #faf7f4;
+      border: 2px solid #efe5dc;
+      border-radius: 16px;
+      padding: 15px 16px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.16s ease;
+    }
+
+    .opt-btn:active {
+      transform: scale(0.98);
+    }
+
+    .opt-btn.selected {
+      background: #fff1eb;
+      border-color: var(--accent);
+      color: #c23616;
+    }
+
+    .opt-letter {
+      flex: 0 0 28px;
+      height: 28px;
+      border-radius: 9px;
+      background: #fff;
+      border: 1.5px solid #e6d8cc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--sub);
+    }
+
+    .opt-btn.selected .opt-letter {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* Result Transition Screen */
+    .result-icon {
+      font-size: 62px;
+      text-align: center;
+      margin-bottom: 10px;
+      animation: bounceIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.3); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .score-pill {
+      display: table;
+      margin: 0 auto 14px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .score-pill.win {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .score-pill.fail {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    /* Fullscreen Nailong Prank Overlay */
+    #screen-prank {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: #ffffff;
+      max-width: none;
+      width: 100vw;
+      height: 100dvh;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: max(env(safe-area-inset-top, 14px), 14px) 14px max(env(safe-area-inset-bottom, 16px), 16px);
+      overflow: hidden;
+    }
+
+    #screen-prank.active {
+      display: flex;
+      animation: prankPop 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @keyframes prankPop {
+      0% { transform: scale(1.25); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .prank-top {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      width: 100%;
+      max-width: 440px;
+    }
+
+    .prank-headline {
+      font-size: 24px;
+      font-weight: 900;
+      color: #ff2a2a;
+      text-shadow: 0 2px 0 #ffe600;
+      line-height: 1.25;
+      margin-bottom: 6px;
+      animation: wobbleText 0.45s ease-in-out infinite alternate;
+    }
+
+    @keyframes wobbleText {
+      from { transform: rotate(-1.5deg) scale(1); }
+      to { transform: rotate(1.5deg) scale(1.04); }
+    }
+
+    .prank-sub {
+      display: inline-block;
+      background: #111827;
+      color: #fde047;
+      font-size: 13.5px;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    .video-stage {
+      position: relative;
+      flex: 1;
+      width: 100%;
+      max-width: 440px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 0;
+      margin: 6px 0;
+    }
+
+    #nailong-video {
+      width: 100%;
+      height: 100%;
+      max-height: 68dvh;
+      object-fit: contain;
+      border-radius: 18px;
+      background: #ffffff;
+    }
+
+    .unmute-hint {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      background: rgba(17, 24, 39, 0.88);
+      color: #fde047;
+      border: 2px solid #fde047;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      display: none;
+      white-space: nowrap;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.28);
+    }
+
+    .unmute-hint.show {
+      display: block;
+      animation: pulseBtn 1.1s infinite;
+    }
+
+    .danmaku-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 15;
+    }
+
+    .danmaku {
+      position: absolute;
+      white-space: nowrap;
+      font-size: 20px;
+      font-weight: 900;
+      color: #ffea00;
+      -webkit-text-stroke: 1.2px #111;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.45);
+      animation: flyLeft linear forwards;
+    }
+
+    @keyframes flyLeft {
+      from { transform: translateX(105vw); }
+      to { transform: translateX(-110%); }
+    }
+
+    .prank-actions {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 440px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-mini {
+      flex: 1;
+      border: 1.5px solid #e5e7eb;
+      background: #f9fafb;
+      color: #111827;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 10px;
+      border-radius: 14px;
+      cursor: pointer;
+    }
+
+    .btn-mini.accent {
+      background: #111827;
+      color: #fde047;
+      border-color: #111827;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 86px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(17, 24, 39, 0.9);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+
+    .toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- 1. 首页伪装页 -->
+    <section id="screen-start" class="screen active">
+      <div class="card">
+        <div style="text-align:center;">
+          <span class="badge">✨ 2026 专属好友福利</span>
+        </div>
+        <div class="gift-hero">🎁</div>
+        <h1>挚友默契大考验</h1>
+        <p class="subtitle">
+          看看你到底有多了解我！<br />
+          一共只有 <strong>5 道选择题</strong>，轻松 30 秒搞定。
+        </p>
+        <div class="highlight-box">
+          🎉 回答满五题，立即解锁隐藏神秘惊喜！<br />
+          <span style="font-size:12px;font-weight:500;opacity:0.85;">（仅限铁哥们参与，全对直接解锁隐藏大礼）</span>
+        </div>
+        <button class="btn-primary" id="btn-start">
+          <span>🚀 开始答题（共 5 题）</span>
+        </button>
+        <p class="footnote">已有 12 位好友参与 · 满分通关率 33%</p>
+      </div>
+    </section>
+
+    <!-- 2. 答题页 -->
+    <section id="screen-quiz" class="screen">
+      <div class="card">
+        <div class="progress-wrap">
+          <span id="q-counter">第 1 / 5 题</span>
+          <span id="q-tag" style="color:var(--accent);">默契热身</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="q-title" id="q-title"></div>
+        <div class="options" id="q-options"></div>
+      </div>
+    </section>
+
+    <!-- 3. 结算反转诱导页 -->
+    <section id="screen-result" class="screen">
+      <div class="card">
+        <div class="result-icon" id="res-icon">🎉</div>
+        <div class="score-pill" id="res-pill"></div>
+        <h1 id="res-title"></h1>
+        <p class="subtitle" id="res-desc"></p>
+        <div class="highlight-box" id="res-box"></div>
+        <button class="btn-primary" id="btn-reveal"></button>
+        <p class="footnote" id="res-foot"></p>
+      </div>
+    </section>
+  </div>
+
+  <!-- 4. 终极奶龙狂笑全屏页 -->
+  <section id="screen-prank">
+    <div class="danmaku-layer" id="danmaku-layer"></div>
+    <div class="prank-top">
+      <div class="prank-headline" id="prank-headline"></div>
+      <div class="prank-sub" id="prank-sub"></div>
+    </div>
+    <div class="video-stage">
+      <video
+        id="nailong-video"
+        src="./nailong.mp4"
+        preload="auto"
+        playsinline
+        webkit-playsinline="true"
+        x5-playsinline="true"
+        x5-video-player-type="h5-page"
+        loop
+      ></video>
+      <button class="unmute-hint" id="btn-unmute-hint">🔊 点这里开启灵魂笑声</button>
+    </div>
+    <div class="prank-actions">
+      <button class="btn-mini" id="btn-sound">🔊 声音：开</button>
+      <button class="btn-mini" id="btn-retry">🔁 不服重测</button>
+      <button class="btn-mini accent" id="btn-copy">📤 坑下一个人</button>
+    </div>
+  </section>
+
+  <div class="toast" id="toast">已复制链接，快去坑下一个人！</div>
+
+  <script>
+    const QUESTIONS = [
+      {
+        tag: "第 1 题 · 热身送分",
+        title: "我平时最常玩 / 最上头的游戏是哪款？",
+        options: [
+          "无畏契约（瓦罗兰特）",
+          "英雄联盟",
+          "都市：天际线 2",
+          "EA FC / FIFA"
+        ],
+        answer: 0
+      },
+      {
+        tag: "第 2 题 · 成分鉴定",
+        title: "我最喜欢的球队是哪支？",
+        options: [
+          "皇家马德里",
+          "巴塞罗那",
+          "曼城",
+          "拜仁慕尼黑"
+        ],
+        answer: 0
+      },
+      {
+        tag: "第 3 题 · 日常口头禅",
+        title: "约我出门 / 吃饭 / 开黑，我最常说的一句话是？",
+        options: [
+          "“马上到”（实际刚起床）",
+          "“这把最后一把”",
+          "“随便都行”（结果挑半天）",
+          "秒回并准时到达"
+        ],
+        answer: 1
+      },
+      {
+        tag: "第 4 题 · 尊称大考",
+        title: "我喜欢你们叫我什么称呼？",
+        options: [
+          "直接叫本名",
+          "殷神"
+        ],
+        answer: 1
+      },
+      {
+        tag: "第 5 题 · 终极默契",
+        title: "假如有一天我俩一起被外星人抓走，只能放走一个人，你觉得我会怎么选？",
+        options: [
+          "义薄云天，含泪让你先跑",
+          "立刻把你推过去：“抓他！他肉多！”",
+          "跟外星人谈判：“我俩买一送一”",
+          "先掏手机拍条视频发朋友圈再说"
+        ],
+        answer: 1
+      }
+    ];
+
+    const LETTERS = ["A", "B", "C", "D"];
+    let currentIdx = 0;
+    let score = 0;
+    let isWin = false;
+    let danmakuTimer = null;
+
+    const screenStart = document.getElementById("screen-start");
+    const screenQuiz = document.getElementById("screen-quiz");
+    const screenResult = document.getElementById("screen-result");
+    const screenPrank = document.getElementById("screen-prank");
+    const video = document.getElementById("nailong-video");
+    const unmuteHint = document.getElementById("btn-unmute-hint");
+    const btnSound = document.getElementById("btn-sound");
+
+    function showScreen(target) {
+      [screenStart, screenQuiz, screenResult].forEach(s => s.classList.remove("active"));
+      screenPrank.classList.remove("active");
+      target.classList.add("active");
+    }
+
+    function renderQuestion() {
+      const q = QUESTIONS[currentIdx];
+      document.getElementById("q-counter").textContent = `第 ${currentIdx + 1} / ${QUESTIONS.length} 题`;
+      document.getElementById("q-tag").textContent = q.tag;
+      document.getElementById("progress-fill").style.width = `${((currentIdx + 1) / QUESTIONS.length) * 100}%`;
+      document.getElementById("q-title").textContent = q.title;
+
+      const optWrap = document.getElementById("q-options");
+      optWrap.innerHTML = "";
+      q.options.forEach((text, i) => {
+        const btn = document.createElement("button");
+        btn.className = "opt-btn";
+        btn.innerHTML = `<span class="opt-letter">${LETTERS[i]}</span><span>${text}</span>`;
+        btn.addEventListener("click", () => {
+          btn.classList.add("selected");
+          if (i === q.answer) score++;
+          // Disable double tap
+          optWrap.querySelectorAll("button").forEach(b => b.disabled = true);
+          setTimeout(() => {
+            currentIdx++;
+            if (currentIdx < QUESTIONS.length) {
+              renderQuestion();
+            } else {
+              renderResult();
+            }
+          }, 260);
+        });
+        optWrap.appendChild(btn);
+      });
+    }
+
+    function renderResult() {
+      isWin = score === QUESTIONS.length;
+      const icon = document.getElementById("res-icon");
+      const pill = document.getElementById("res-pill");
+      const title = document.getElementById("res-title");
+      const desc = document.getElementById("res-desc");
+      const box = document.getElementById("res-box");
+      const btn = document.getElementById("btn-reveal");
+      const foot = document.getElementById("res-foot");
+
+      if (isWin) {
+        icon.textContent = "🏆";
+        pill.className = "score-pill win";
+        pill.textContent = `满分通关 · ${score} / 5 题全对`;
+        title.textContent = "不愧是真·铁哥们！";
+        desc.innerHTML = "5 道题居然全让你答对了！<br />专属隐藏神秘惊喜已为你解锁完毕 👇";
+        box.innerHTML = "🎁 专属神秘礼盒已就绪，点击下方按钮立即拆开！";
+        btn.className = "btn-primary";
+        btn.innerHTML = "<span>🎁 点击拆开终极神秘惊喜</span>";
+        foot.textContent = "专属惊喜仅限本人查看";
+      } else {
+        icon.textContent = "😭";
+        pill.className = "score-pill fail";
+        pill.textContent = `挑战失败 · 仅答对 ${score} / 5 题`;
+        title.textContent = "与神秘大奖擦肩而过！";
+        desc.innerHTML = "连这都能答错，看来咱俩的友情还要再充值……<br />不过看在平时交情的份上，我偷偷给你留了个内部后门 👇";
+        box.innerHTML = "🔑 已为你临时开启<strong>【好友特权通道】</strong>，可免试直接偷看神秘惊喜补偿！";
+        btn.className = "btn-primary btn-secret";
+        btn.innerHTML = "<span>🔓 好友特权：免试偷看惊喜</span>";
+        foot.textContent = "特权通道 30 秒后失效，手慢无！";
+      }
+      showScreen(screenResult);
+    }
+
+    function spawnDanmaku() {
+      const layer = document.getElementById("danmaku-layer");
+      const pool = isWin
+        ? ["哈哈哈哈哈哈！", "纯纯大冤种！", "真以为有大奖啊？", "笑死龙了 齁齁齁！", "全对奖励奶龙狂笑！", "绷不住了哈哈哈哈"]
+        : ["抓到想白嫖的了！", "题都不会做还想偷看？", "笑死龙了 齁齁齁！", "就这？就这？？", "塑料友情实锤！", "哈哈哈哈哈哈哈哈！"];
+      const el = document.createElement("div");
+      el.className = "danmaku";
+      el.textContent = pool[Math.floor(Math.random() * pool.length)];
+      // Keep danmaku near top or bottom so Nailong's face stays unobstructed
+      const topBands = [12, 17, 74, 80];
+      el.style.top = topBands[Math.floor(Math.random() * topBands.length)] + "%";
+      el.style.animationDuration = (4.2 + Math.random() * 2.2).toFixed(1) + "s";
+      layer.appendChild(el);
+      setTimeout(() => el.remove(), 6800);
+    }
+
+    function triggerPrank() {
+      if (navigator.vibrate) {
+        try { navigator.vibrate([120, 60, 120, 60, 260]); } catch (e) {}
+      }
+
+      const headline = document.getElementById("prank-headline");
+      const sub = document.getElementById("prank-sub");
+      if (isWin) {
+        headline.textContent = "😂 哈哈哈哈真以为有惊喜啊？！";
+        sub.textContent = "全答对又怎样？奖励你欣赏奶龙捧腹大笑！";
+      } else {
+        headline.textContent = "🚨 抓到想走后门白嫖的了！";
+        sub.textContent = "题都不会做还想偷看惊喜？笑死龙了 齁齁齁！";
+      }
+
+      [screenStart, screenQuiz, screenResult].forEach(s => s.classList.remove("active"));
+      screenPrank.classList.add("active");
+
+      video.currentTime = 0;
+      video.muted = false;
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.then === "function") {
+        playPromise.then(() => {
+          unmuteHint.classList.remove("show");
+          btnSound.textContent = "🔊 声音：开";
+        }).catch(() => {
+          // Fallback: start muted and show giant unmute button
+          video.muted = true;
+          video.play().catch(() => {});
+          unmuteHint.classList.add("show");
+          btnSound.textContent = "🔇 声音：关";
+        });
+      }
+
+      if (danmakuTimer) clearInterval(danmakuTimer);
+      spawnDanmaku();
+      danmakuTimer = setInterval(spawnDanmaku, 1300);
+    }
+
+    // Preload video hint on start tap
+    document.getElementById("btn-start").addEventListener("click", () => {
+      try { video.load(); } catch (e) {}
+      currentIdx = 0;
+      score = 0;
+      renderQuestion();
+      showScreen(screenQuiz);
+    });
+
+    document.getElementById("btn-reveal").addEventListener("click", triggerPrank);
+
+    unmuteHint.addEventListener("click", () => {
+      video.muted = false;
+      video.play().catch(() => {});
+      unmuteHint.classList.remove("show");
+      btnSound.textContent = "🔊 声音：开";
+    });
+
+    btnSound.addEventListener("click", () => {
+      video.muted = !video.muted;
+      btnSound.textContent = video.muted ? "🔇 声音：关" : "🔊 声音：开";
+      if (!video.muted) {
+        unmuteHint.classList.remove("show");
+        video.play().catch(() => {});
+      }
+    });
+
+    document.getElementById("btn-retry").addEventListener("click", () => {
+      video.pause();
+      if (danmakuTimer) clearInterval(danmakuTimer);
+      document.getElementById("danmaku-layer").innerHTML = "";
+      currentIdx = 0;
+      score = 0;
+      renderQuestion();
+      showScreen(screenQuiz);
+    });
+
+    document.getElementById("btn-copy").addEventListener("click", () => {
+      const url = window.location.href;
+      const showToast = (msg) => {
+        const t = document.getElementById("toast");
+        t.textContent = msg;
+        t.classList.add("show");
+        setTimeout(() => t.classList.remove("show"), 2000);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(() => showToast("已复制链接，快去坑下一个人！")).catch(() => showToast("长按浏览器地址栏复制链接发群里！"));
+      } else {
+        showToast("点右上角转发或复制链接发给朋友！");
+      }
+    });
+  </script>
+</body>
+</html>
