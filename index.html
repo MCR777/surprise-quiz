@@ -42,14 +42,14 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px 16px env(safe-area-inset-bottom, 20px);
+      padding: 18px 14px env(safe-area-inset-bottom, 20px);
     }
 
     .screen {
       display: none;
       width: 100%;
-      max-width: 430px;
-      animation: fadeUp 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      max-width: 440px;
+      animation: fadeUp 0.32s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .screen.active {
@@ -57,14 +57,14 @@
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px) scale(0.98); }
+      from { opacity: 0; transform: translateY(16px) scale(0.98); }
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .card {
       background: var(--card);
       border-radius: 24px;
-      padding: 28px 22px;
+      padding: 26px 20px;
       box-shadow: var(--shadow);
       border: 1px solid var(--border);
       position: relative;
@@ -81,19 +81,19 @@
       font-weight: 700;
       padding: 6px 14px;
       border-radius: 999px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .gift-hero {
-      width: 92px;
-      height: 92px;
-      margin: 4px auto 18px;
+      width: 88px;
+      height: 88px;
+      margin: 4px auto 16px;
       border-radius: 26px;
       background: linear-gradient(135deg, #ff7a45, #ff4d4f);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 48px;
+      font-size: 46px;
       box-shadow: 0 12px 28px rgba(255, 77, 79, 0.28);
       animation: floatGift 2.4s ease-in-out infinite;
     }
@@ -104,10 +104,10 @@
     }
 
     h1 {
-      font-size: 25px;
+      font-size: 24px;
       font-weight: 800;
       text-align: center;
-      line-height: 1.3;
+      line-height: 1.32;
       margin-bottom: 10px;
       letter-spacing: -0.3px;
     }
@@ -116,8 +116,8 @@
       font-size: 15px;
       color: var(--sub);
       text-align: center;
-      line-height: 1.65;
-      margin-bottom: 22px;
+      line-height: 1.6;
+      margin-bottom: 20px;
     }
 
     .highlight-box {
@@ -125,7 +125,7 @@
       border: 1px dashed #f5b963;
       border-radius: 16px;
       padding: 14px 16px;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       font-size: 14px;
       color: #8a4b08;
       line-height: 1.6;
@@ -137,14 +137,14 @@
       width: 100%;
       border: none;
       border-radius: 16px;
-      padding: 16px 20px;
-      font-size: 17px;
+      padding: 15px 18px;
+      font-size: 16.5px;
       font-weight: 800;
       color: #fff;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       box-shadow: 0 10px 24px rgba(255, 92, 53, 0.34);
       cursor: pointer;
-      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      transition: transform 0.12s ease;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -173,6 +173,16 @@
       margin-top: 14px;
     }
 
+    .link-subtle {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 12.5px;
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
     /* Quiz screen */
     .progress-wrap {
       display: flex;
@@ -190,7 +200,7 @@
       background: #f3ece4;
       border-radius: 999px;
       overflow: hidden;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .progress-fill {
@@ -198,21 +208,21 @@
       width: 20%;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
       border-radius: 999px;
-      transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: width 0.32s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .q-title {
-      font-size: 20px;
+      font-size: 19.5px;
       font-weight: 800;
       line-height: 1.45;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       color: var(--text);
     }
 
     .options {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 11px;
     }
 
     .opt-btn {
@@ -221,7 +231,7 @@
       background: #faf7f4;
       border: 2px solid #efe5dc;
       border-radius: 16px;
-      padding: 15px 16px;
+      padding: 14px 15px;
       font-size: 15px;
       font-weight: 600;
       color: var(--text);
@@ -229,12 +239,10 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      transition: all 0.16s ease;
+      transition: all 0.15s ease;
     }
 
-    .opt-btn:active {
-      transform: scale(0.98);
-    }
+    .opt-btn:active { transform: scale(0.98); }
 
     .opt-btn.selected {
       background: #fff1eb;
@@ -264,7 +272,7 @@
 
     /* Result Transition Screen */
     .result-icon {
-      font-size: 62px;
+      font-size: 60px;
       text-align: center;
       margin-bottom: 10px;
       animation: bounceIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -284,15 +292,8 @@
       font-weight: 800;
     }
 
-    .score-pill.win {
-      background: #dcfce7;
-      color: #15803d;
-    }
-
-    .score-pill.fail {
-      background: #fee2e2;
-      color: #b91c1c;
-    }
+    .score-pill.win { background: #dcfce7; color: #15803d; }
+    .score-pill.fail { background: #fee2e2; color: #b91c1c; }
 
     /* Fullscreen Nailong Prank Overlay */
     #screen-prank {
@@ -307,7 +308,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      padding: max(env(safe-area-inset-top, 14px), 14px) 14px max(env(safe-area-inset-bottom, 16px), 16px);
+      padding: max(env(safe-area-inset-top, 12px), 12px) 12px max(env(safe-area-inset-bottom, 14px), 14px);
       overflow: hidden;
     }
 
@@ -317,7 +318,7 @@
     }
 
     @keyframes prankPop {
-      0% { transform: scale(1.25); opacity: 0; }
+      0% { transform: scale(1.2); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
 
@@ -330,7 +331,7 @@
     }
 
     .prank-headline {
-      font-size: 24px;
+      font-size: 22.5px;
       font-weight: 900;
       color: #ff2a2a;
       text-shadow: 0 2px 0 #ffe600;
@@ -348,7 +349,7 @@
       display: inline-block;
       background: #111827;
       color: #fde047;
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 800;
       padding: 6px 14px;
       border-radius: 999px;
@@ -364,13 +365,13 @@
       align-items: center;
       justify-content: center;
       min-height: 0;
-      margin: 6px 0;
+      margin: 4px 0;
     }
 
     #nailong-video {
       width: 100%;
       height: 100%;
-      max-height: 68dvh;
+      max-height: 62dvh;
       object-fit: contain;
       border-radius: 18px;
       background: #ffffff;
@@ -382,7 +383,7 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 20;
-      background: rgba(17, 24, 39, 0.88);
+      background: rgba(17, 24, 39, 0.9);
       color: #fde047;
       border: 2px solid #fde047;
       border-radius: 999px;
@@ -411,7 +412,7 @@
     .danmaku {
       position: absolute;
       white-space: nowrap;
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 900;
       color: #ffea00;
       -webkit-text-stroke: 1.2px #111;
@@ -424,13 +425,37 @@
       to { transform: translateX(-110%); }
     }
 
-    .prank-actions {
+    .prank-bottom-wrap {
       position: relative;
       z-index: 10;
       width: 100%;
       max-width: 440px;
       display: flex;
-      gap: 10px;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .btn-create-own {
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+      padding: 13px 16px;
+      font-size: 15px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #ff5c35, #ff942e);
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(255, 92, 53, 0.32);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .prank-actions {
+      width: 100%;
+      display: flex;
+      gap: 8px;
     }
 
     .btn-mini {
@@ -438,10 +463,10 @@
       border: 1.5px solid #e5e7eb;
       background: #f9fafb;
       color: #111827;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
-      padding: 12px 10px;
-      border-radius: 14px;
+      padding: 10px 8px;
+      border-radius: 12px;
       cursor: pointer;
     }
 
@@ -451,12 +476,226 @@
       border-color: #111827;
     }
 
+    /* Builder / Customizer Screen */
+    #screen-builder {
+      max-width: 460px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .builder-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .builder-title {
+      font-size: 19px;
+      font-weight: 900;
+      color: var(--text);
+    }
+
+    .btn-back {
+      background: #f3ece4;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--sub);
+      cursor: pointer;
+    }
+
+    .field-group {
+      background: #faf7f4;
+      border: 1.5px solid #efe5dc;
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+
+    .field-label {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .input-text {
+      width: 100%;
+      border: 1.5px solid #e5d8cc;
+      border-radius: 11px;
+      padding: 10px 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      background: #fff;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .input-text:focus {
+      border-color: var(--accent);
+    }
+
+    .slot-tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .slot-tab {
+      flex: 1;
+      border: 1.5px solid #efe5dc;
+      background: #faf7f4;
+      color: var(--sub);
+      border-radius: 11px;
+      padding: 9px 4px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .slot-tab.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(255, 92, 53, 0.25);
+    }
+
+    .bank-bar {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .bank-select {
+      flex: 1;
+      border: 1.5px solid #e5d8cc;
+      border-radius: 11px;
+      padding: 9px 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      background: #fff;
+      outline: none;
+    }
+
+    .btn-small-tool {
+      border: 1.5px solid #e5d8cc;
+      background: #fff;
+      color: var(--text);
+      border-radius: 11px;
+      padding: 8px 10px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-small-tool.custom-mode {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: #fff4ef;
+    }
+
+    .opt-edit-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .opt-edit-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ans-radio {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 7px 10px;
+      border-radius: 10px;
+      border: 1.5px solid #e5d8cc;
+      background: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--sub);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .ans-radio.checked {
+      background: #dcfce7;
+      border-color: #16a34a;
+      color: #15803d;
+    }
+
+    .btn-del-opt {
+      flex: 0 0 30px;
+      height: 34px;
+      border: 1px solid #fee2e2;
+      background: #fff5f5;
+      color: #dc2626;
+      border-radius: 9px;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .opt-row-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--sub);
+    }
+
+    .share-result-box {
+      display: none;
+      margin-top: 14px;
+      background: #ecfdf5;
+      border: 1.5px solid #34d399;
+      border-radius: 16px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .share-result-box.show {
+      display: block;
+      animation: fadeUp 0.25s ease;
+    }
+
+    .share-url-preview {
+      width: 100%;
+      background: #fff;
+      border: 1px solid #a7f3d0;
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 12px;
+      color: #065f46;
+      word-break: break-all;
+      margin: 8px 0 10px;
+      text-align: left;
+      max-height: 66px;
+      overflow-y: auto;
+    }
+
     .toast {
       position: fixed;
       bottom: 86px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(17, 24, 39, 0.9);
+      background: rgba(17, 24, 39, 0.92);
       color: #fff;
       padding: 10px 18px;
       border-radius: 999px;
@@ -466,6 +705,7 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.25s;
+      white-space: nowrap;
     }
 
     .toast.show { opacity: 1; }
@@ -477,11 +717,11 @@
     <section id="screen-start" class="screen active">
       <div class="card">
         <div style="text-align:center;">
-          <span class="badge">✨ 2026 专属好友福利</span>
+          <span class="badge" id="start-badge">✨ 2026 专属好友福利</span>
         </div>
         <div class="gift-hero">🎁</div>
-        <h1>挚友默契大考验</h1>
-        <p class="subtitle">
+        <h1 id="start-title">挚友默契大考验</h1>
+        <p class="subtitle" id="start-subtitle">
           看看你到底有多了解我！<br />
           一共只有 <strong>5 道选择题</strong>，轻松 30 秒搞定。
         </p>
@@ -492,7 +732,10 @@
         <button class="btn-primary" id="btn-start">
           <span>🚀 开始答题（共 5 题）</span>
         </button>
-        <p class="footnote">已有 12 位好友参与 · 满分通关率 33%</p>
+        <p class="footnote">
+          已有 12 位好友参与 · 满分通关率 33%<br />
+          <span class="link-subtle" id="link-open-builder-start">✨ 我也要制作专属题库去坑朋友 →</span>
+        </p>
       </div>
     </section>
 
@@ -501,7 +744,7 @@
       <div class="card">
         <div class="progress-wrap">
           <span id="q-counter">第 1 / 5 题</span>
-          <span id="q-tag" style="color:var(--accent);">默契热身</span>
+          <span id="q-tag" style="color:var(--accent);">默契考验</span>
         </div>
         <div class="progress-bar">
           <div class="progress-fill" id="progress-fill"></div>
@@ -521,6 +764,65 @@
         <div class="highlight-box" id="res-box"></div>
         <button class="btn-primary" id="btn-reveal"></button>
         <p class="footnote" id="res-foot"></p>
+      </div>
+    </section>
+
+    <!-- 5. 专属题库定制页（15 题题库 + 自由手写题目） -->
+    <section id="screen-builder" class="screen">
+      <div class="card" style="padding: 22px 16px;">
+        <div class="builder-header">
+          <span class="builder-title">✨ 定制我的专属整蛊链接</span>
+          <button class="btn-back" id="btn-builder-back">返回</button>
+        </div>
+
+        <div class="field-group">
+          <div class="field-label">
+            <span>1. 你的名字 / 外号（可选）</span>
+            <span style="font-size:11.5px;color:var(--sub);font-weight:600;">显示在开屏标题</span>
+          </div>
+          <input type="text" id="creator-name" class="input-text" placeholder="例如：阿伟 / 杰哥（留空则显示通用版）" maxlength="16" />
+        </div>
+
+        <div class="field-label" style="margin-bottom:6px;padding:0 2px;">
+          <span>2. 设置你的 5 道题（可从 15 题库选，也可自己手写）</span>
+          <button class="btn-small-tool" id="btn-random-all" style="padding:4px 8px;font-size:11.5px;">🎲 5题全随机</button>
+        </div>
+
+        <div class="slot-tabs" id="slot-tabs"></div>
+
+        <div class="field-group" style="margin-bottom:14px;">
+          <div class="field-label">
+            <span id="slot-editor-label">正在编辑：第 1 题</span>
+            <span style="font-size:11.5px;color:var(--accent);font-weight:700;">点击下方「设为答案」定正确项</span>
+          </div>
+
+          <div class="bank-bar">
+            <select id="bank-select" class="bank-select"></select>
+            <button class="btn-small-tool custom-mode" id="btn-custom-blank">✏️ 自己手写题目</button>
+          </div>
+
+          <input type="text" id="edit-q-title" class="input-text" placeholder="输入你自己的问题..." maxlength="60" />
+
+          <div class="opt-edit-list" id="opt-edit-list"></div>
+
+          <div class="opt-row-actions">
+            <span>提示：点击左侧按钮切换正确答案</span>
+            <button class="btn-small-tool" id="btn-add-opt" style="padding:5px 10px;font-size:12px;">+ 添加选项</button>
+          </div>
+        </div>
+
+        <button class="btn-primary" id="btn-generate-link">
+          <span>🔗 一键生成并复制我的专属永久链接</span>
+        </button>
+
+        <div class="share-result-box" id="share-result-box">
+          <div style="font-size:14px;font-weight:800;color:#065f46;">🎉 你的专属永久整蛊链接已生成并复制！</div>
+          <div class="share-url-preview" id="share-url-preview"></div>
+          <div style="display:flex;gap:8px;">
+            <button class="btn-mini accent" id="btn-copy-generated" style="flex:1.3;">📋 再次复制链接</button>
+            <button class="btn-mini" id="btn-preview-generated" style="flex:1;">👀 自己试玩一下</button>
+          </div>
+        </div>
       </div>
     </section>
   </div>
@@ -545,61 +847,54 @@
       ></video>
       <button class="unmute-hint" id="btn-unmute-hint">🔊 点这里开启灵魂笑声</button>
     </div>
-    <div class="prank-actions">
-      <button class="btn-mini" id="btn-sound">🔊 声音：开</button>
-      <button class="btn-mini" id="btn-retry">🔁 不服重测</button>
-      <button class="btn-mini accent" id="btn-copy">📤 坑下一个人</button>
+    <div class="prank-bottom-wrap">
+      <button class="btn-create-own" id="btn-open-builder-prank">
+        <span>✨ 我也要定制专属题库去坑朋友（15题库 + 可自拟）</span>
+      </button>
+      <div class="prank-actions">
+        <button class="btn-mini" id="btn-sound">🔊 声音：开</button>
+        <button class="btn-mini" id="btn-retry">🔁 不服重测</button>
+        <button class="btn-mini accent" id="btn-copy">📤 转发本链接</button>
+      </div>
     </div>
   </section>
 
   <div class="toast" id="toast">已复制链接，快去坑下一个人！</div>
 
   <script>
-    const QUESTIONS = [
+    // 15 道精选整蛊题库（前 5 题为原版默认题，后 10 题为新增精选扩展题库）
+    const QUESTION_BANK = [
       {
-        tag: "第 1 题 · 热身送分",
+        id: 0,
+        cat: "🎮 经典题 1 · 常玩游戏",
         title: "我平时最常玩 / 最上头的游戏是哪款？",
-        options: [
-          "无畏契约（瓦罗兰特）",
-          "英雄联盟",
-          "都市：天际线 2",
-          "EA FC / FIFA"
-        ],
+        options: ["无畏契约（瓦罗兰特）", "英雄联盟", "都市：天际线 2", "EA FC / FIFA"],
         answer: 0
       },
       {
-        tag: "第 2 题 · 成分鉴定",
+        id: 1,
+        cat: "⚽ 经典题 2 · 主队信仰",
         title: "我最喜欢的球队是哪支？",
-        options: [
-          "皇家马德里",
-          "巴塞罗那",
-          "曼城",
-          "拜仁慕尼黑"
-        ],
+        options: ["皇家马德里", "巴塞罗那", "曼城", "拜仁慕尼黑"],
         answer: 0
       },
       {
-        tag: "第 3 题 · 日常口头禅",
+        id: 2,
+        cat: "🗣️ 经典题 3 · 日常口头禅",
         title: "约我出门 / 吃饭 / 开黑，我最常说的一句话是？",
-        options: [
-          "“马上到”（实际刚起床）",
-          "“这把最后一把”",
-          "“随便都行”（结果挑半天）",
-          "秒回并准时到达"
-        ],
+        options: ["“马上到”（实际刚起床）", "“这把最后一把”", "“随便都行”（结果挑半天）", "秒回并准时到达"],
         answer: 1
       },
       {
-        tag: "第 4 题 · 尊称大考",
+        id: 3,
+        cat: "👑 经典题 4 · 专属尊称",
         title: "我喜欢你们叫我什么称呼？",
-        options: [
-          "直接叫本名",
-          "殷神"
-        ],
+        options: ["直接叫本名", "{name}神"],
         answer: 1
       },
       {
-        tag: "第 5 题 · 终极默契",
+        id: 4,
+        cat: "🛸 经典题 5 · 外星人抓人",
         title: "假如有一天我俩一起被外星人抓走，只能放走一个人，你觉得我会怎么选？",
         options: [
           "义薄云天，含泪让你先跑",
@@ -608,34 +903,256 @@
           "先掏手机拍条视频发朋友圈再说"
         ],
         answer: 1
+      },
+      // --- 新增 10 道扩展整蛊题库（经 Claude Opus 5.5 审核与移动端精简润色） ---
+      {
+        id: 5,
+        cat: "🌙 新题库 1 · 熬夜作息",
+        title: "凌晨两点给我发消息，我大概率在干嘛？",
+        options: [
+          "早就睡了，养生作息拿捏",
+          "刷短视频停不下来，疯狂往群里转",
+          "深夜emo上头，开始思考人生",
+          "饿到睡不着，纠结要不要点烧烤"
+        ],
+        answer: 1
+      },
+      {
+        id: 6,
+        cat: "🍜 新题库 2 · 干饭习惯",
+        title: "大家一起出去吃饭，我的真实状态是？",
+        options: [
+          "只要有肉，吃啥都香",
+          "疯狂安利我想吃的那家",
+          "天天喊减肥，最后一口吃最多",
+          "负责拍照，手机先吃"
+        ],
+        answer: 2
+      },
+      {
+        id: 7,
+        cat: "💬 新题库 3 · 回复速度",
+        title: "我回你消息的速度，主要取决于什么？",
+        options: [
+          "基本秒回，手机长在手上",
+          "发红包秒回，聊正事失联",
+          "在心里回过了，忘了打字",
+          "看心情，主打一个随缘"
+        ],
+        answer: 2
+      },
+      {
+        id: 8,
+        cat: "🎤 新题库 4 · 聚会人设",
+        title: "朋友聚会或去KTV，我的固定人设是？",
+        options: [
+          "麦霸本霸，抢到麦绝不撒手",
+          "缩在角落猛炫果盘零食",
+          "气氛组组长，鼓掌起哄摇骰子",
+          "全程低头玩手机，合照才抬头"
+        ],
+        answer: 2
+      },
+      {
+        id: 9,
+        cat: "🛌 新题库 5 · 鸽子语录",
+        title: "不想出门营业的时候，我最常用的借口是？",
+        options: [
+          "“今天不太舒服，下次一定！”",
+          "“临时有点事，你们先玩”",
+          "装睡不回，第二天说“昨晚睡太早”",
+          "坦白局：“床不让我走”"
+        ],
+        answer: 2
+      },
+      {
+        id: 10,
+        cat: "💢 新题库 6 · 破防时刻",
+        title: "什么事最容易让我当场红温破防？",
+        options: [
+          "队友挂机送人头，还打字骂我",
+          "刚洗完头出门，就下大雨",
+          "写半天的东西没保存就闪退",
+          "外卖等一小时，送来洒了一半"
+        ],
+        answer: 0
+      },
+      {
+        id: 11,
+        cat: "💰 新题库 7 · 暴富幻想",
+        title: "如果我明天中了1000万彩票，第一反应是？",
+        options: [
+          "分你一半，苟富贵勿相忘",
+          "连夜退群删好友，假装不认识",
+          "先来一份疯狂星期四，加两根烤肠",
+          "以为在做梦，翻身继续睡"
+        ],
+        answer: 1
+      },
+      {
+        id: 12,
+        cat: "💸 新题库 8 · 借钱考验",
+        title: "我半夜突然找你借500块，最可能是因为？",
+        options: [
+          "号被盗了，千万别转！",
+          "看上限定皮肤/手办，走不动道",
+          "月底吃土，急需投喂",
+          "测试友情含金量（转了也不一定还）"
+        ],
+        answer: 0
+      },
+      {
+        id: 13,
+        cat: "📸 新题库 9 · 黑历史",
+        title: "你手机里存了我的绝密丑照，我会怎么办？",
+        options: [
+          "一顿烧烤买断底片",
+          "反手甩出你三张更丑的，同归于尽",
+          "偷拿你手机删掉，顺手清空“最近删除”",
+          "毫不在意，直接拿来当头像"
+        ],
+        answer: 1
+      },
+      {
+        id: 14,
+        cat: "🏅 新题库 10 · 终极评价",
+        title: "凭良心说，做我朋友最大的福利是？",
+        options: [
+          "每天免费欣赏{fullName}的盛世美颜",
+          "情绪价值拉满，天天有新乐子",
+          "黑锅永远有人背，极具安全感",
+          "时不时收到我精心准备的“惊喜链接”"
+        ],
+        answer: 3
       }
     ];
 
     const LETTERS = ["A", "B", "C", "D"];
+
+    function formatTitleWithName(str, name) {
+      const clean = (name && name.trim()) ? name.trim() : "";
+      const shortName = clean ? clean.slice(0, 1) : "殷";
+      const fullName = clean || "我";
+      return str.replace(/\{name\}/g, shortName).replace(/\{fullName\}/g, fullName);
+    }
+
+    function encodeConfig(cfg) {
+      const json = JSON.stringify(cfg);
+      const bytes = new TextEncoder().encode(json);
+      let bin = "";
+      for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+      return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+    }
+
+    function decodeConfig(str) {
+      try {
+        let b64 = str.replace(/-/g, "+").replace(/_/g, "/");
+        while (b64.length % 4) b64 += "=";
+        const bin = atob(b64);
+        const bytes = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        return JSON.parse(new TextDecoder().decode(bytes));
+      } catch (e) {
+        return null;
+      }
+    }
+
+    // Active quiz state
+    let activeCreatorName = "";
+    let activeQuestions = [];
     let currentIdx = 0;
     let score = 0;
     let isWin = false;
     let danmakuTimer = null;
 
+    function loadQuizFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const c = params.get("c");
+      if (c) {
+        const parsed = decodeConfig(c);
+        if (parsed && Array.isArray(parsed.q) && parsed.q.length > 0) {
+          activeCreatorName = (parsed.u || "").trim();
+          activeQuestions = parsed.q.map((item, idx) => {
+            // Compact format: [bankId, answerIdx] or full format: [title, optionsArray, answerIdx]
+            if (typeof item[0] === "number" && QUESTION_BANK[item[0]]) {
+              const b = QUESTION_BANK[item[0]];
+              return {
+                tag: `第 ${idx + 1} 题 · 默契考验`,
+                title: formatTitleWithName(b.title, activeCreatorName),
+                options: b.options.map(o => formatTitleWithName(o, activeCreatorName)),
+                answer: typeof item[1] === "number" ? item[1] : b.answer
+              };
+            } else {
+              return {
+                tag: `第 ${idx + 1} 题 · 专属提问`,
+                title: String(item[0] || `第 ${idx + 1} 题`),
+                options: Array.isArray(item[1]) && item[1].length >= 2 ? item[1].map(String) : ["选项 A", "选项 B"],
+                answer: typeof item[2] === "number" ? item[2] : 0
+              };
+            }
+          });
+          updateLandingHeader();
+          return;
+        }
+      }
+      // Default: Original 5 questions for 殷神
+      activeCreatorName = "";
+      activeQuestions = [0, 1, 2, 3, 4].map((id, idx) => {
+        const b = QUESTION_BANK[id];
+        return {
+          tag: `第 ${idx + 1} 题 · 默契考验`,
+          title: formatTitleWithName(b.title, "殷"),
+          options: b.options.map(o => formatTitleWithName(o, "殷")),
+          answer: b.answer
+        };
+      });
+      updateLandingHeader();
+    }
+
+    function updateLandingHeader() {
+      const badge = document.getElementById("start-badge");
+      const title = document.getElementById("start-title");
+      const sub = document.getElementById("start-subtitle");
+      if (activeCreatorName) {
+        badge.textContent = `✨ 来自 ${activeCreatorName} 的专属考验`;
+        title.textContent = `你有多了解 ${activeCreatorName}？`;
+        sub.innerHTML = `看看你是不是 <strong>${activeCreatorName}</strong> 的真朋友！<br />一共 <strong>5 道选择题</strong>，30 秒揭晓默契度。`;
+        document.title = `🎁 ${activeCreatorName} 的挚友默契大考验 — 答满五题解锁神秘惊喜`;
+      } else {
+        badge.textContent = "✨ 2026 专属好友福利";
+        title.textContent = "挚友默契大考验";
+        sub.innerHTML = "看看你到底有多了解我！<br />一共只有 <strong>5 道选择题</strong>，轻松 30 秒搞定。";
+      }
+    }
+
     const screenStart = document.getElementById("screen-start");
     const screenQuiz = document.getElementById("screen-quiz");
     const screenResult = document.getElementById("screen-result");
+    const screenBuilder = document.getElementById("screen-builder");
     const screenPrank = document.getElementById("screen-prank");
     const video = document.getElementById("nailong-video");
     const unmuteHint = document.getElementById("btn-unmute-hint");
     const btnSound = document.getElementById("btn-sound");
 
     function showScreen(target) {
-      [screenStart, screenQuiz, screenResult].forEach(s => s.classList.remove("active"));
+      [screenStart, screenQuiz, screenResult, screenBuilder].forEach(s => s.classList.remove("active"));
       screenPrank.classList.remove("active");
       target.classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 2200);
     }
 
     function renderQuestion() {
-      const q = QUESTIONS[currentIdx];
-      document.getElementById("q-counter").textContent = `第 ${currentIdx + 1} / ${QUESTIONS.length} 题`;
+      const q = activeQuestions[currentIdx];
+      document.getElementById("q-counter").textContent = `第 ${currentIdx + 1} / ${activeQuestions.length} 题`;
       document.getElementById("q-tag").textContent = q.tag;
-      document.getElementById("progress-fill").style.width = `${((currentIdx + 1) / QUESTIONS.length) * 100}%`;
+      document.getElementById("progress-fill").style.width = `${((currentIdx + 1) / activeQuestions.length) * 100}%`;
       document.getElementById("q-title").textContent = q.title;
 
       const optWrap = document.getElementById("q-options");
@@ -643,27 +1160,26 @@
       q.options.forEach((text, i) => {
         const btn = document.createElement("button");
         btn.className = "opt-btn";
-        btn.innerHTML = `<span class="opt-letter">${LETTERS[i]}</span><span>${text}</span>`;
+        btn.innerHTML = `<span class="opt-letter">${LETTERS[i] || (i + 1)}</span><span>${text}</span>`;
         btn.addEventListener("click", () => {
           btn.classList.add("selected");
           if (i === q.answer) score++;
-          // Disable double tap
           optWrap.querySelectorAll("button").forEach(b => b.disabled = true);
           setTimeout(() => {
             currentIdx++;
-            if (currentIdx < QUESTIONS.length) {
+            if (currentIdx < activeQuestions.length) {
               renderQuestion();
             } else {
               renderResult();
             }
-          }, 260);
+          }, 240);
         });
         optWrap.appendChild(btn);
       });
     }
 
     function renderResult() {
-      isWin = score === QUESTIONS.length;
+      isWin = score === activeQuestions.length;
       const icon = document.getElementById("res-icon");
       const pill = document.getElementById("res-pill");
       const title = document.getElementById("res-title");
@@ -675,7 +1191,7 @@
       if (isWin) {
         icon.textContent = "🏆";
         pill.className = "score-pill win";
-        pill.textContent = `满分通关 · ${score} / 5 题全对`;
+        pill.textContent = `满分通关 · ${score} / ${activeQuestions.length} 题全对`;
         title.textContent = "不愧是真·铁哥们！";
         desc.innerHTML = "5 道题居然全让你答对了！<br />专属隐藏神秘惊喜已为你解锁完毕 👇";
         box.innerHTML = "🎁 专属神秘礼盒已就绪，点击下方按钮立即拆开！";
@@ -685,7 +1201,7 @@
       } else {
         icon.textContent = "😭";
         pill.className = "score-pill fail";
-        pill.textContent = `挑战失败 · 仅答对 ${score} / 5 题`;
+        pill.textContent = `挑战失败 · 仅答对 ${score} / ${activeQuestions.length} 题`;
         title.textContent = "与神秘大奖擦肩而过！";
         desc.innerHTML = "连这都能答错，看来咱俩的友情还要再充值……<br />不过看在平时交情的份上，我偷偷给你留了个内部后门 👇";
         box.innerHTML = "🔑 已为你临时开启<strong>【好友特权通道】</strong>，可免试直接偷看神秘惊喜补偿！";
@@ -704,12 +1220,11 @@
       const el = document.createElement("div");
       el.className = "danmaku";
       el.textContent = pool[Math.floor(Math.random() * pool.length)];
-      // Keep danmaku near top or bottom so Nailong's face stays unobstructed
-      const topBands = [12, 17, 74, 80];
+      const topBands = [11, 16, 72, 77];
       el.style.top = topBands[Math.floor(Math.random() * topBands.length)] + "%";
-      el.style.animationDuration = (4.2 + Math.random() * 2.2).toFixed(1) + "s";
+      el.style.animationDuration = (4.0 + Math.random() * 2.0).toFixed(1) + "s";
       layer.appendChild(el);
-      setTimeout(() => el.remove(), 6800);
+      setTimeout(() => el.remove(), 6500);
     }
 
     function triggerPrank() {
@@ -727,7 +1242,7 @@
         sub.textContent = "题都不会做还想偷看惊喜？笑死龙了 齁齁齁！";
       }
 
-      [screenStart, screenQuiz, screenResult].forEach(s => s.classList.remove("active"));
+      [screenStart, screenQuiz, screenResult, screenBuilder].forEach(s => s.classList.remove("active"));
       screenPrank.classList.add("active");
 
       video.currentTime = 0;
@@ -738,7 +1253,6 @@
           unmuteHint.classList.remove("show");
           btnSound.textContent = "🔊 声音：开";
         }).catch(() => {
-          // Fallback: start muted and show giant unmute button
           video.muted = true;
           video.play().catch(() => {});
           unmuteHint.classList.add("show");
@@ -751,7 +1265,285 @@
       danmakuTimer = setInterval(spawnDanmaku, 1300);
     }
 
-    // Preload video hint on start tap
+    // ================= Custom Quiz Builder Logic =================
+    let builderSlots = [];
+    let currentSlot = 0;
+    let lastGeneratedUrl = "";
+
+    function initBuilder() {
+      const nameInput = document.getElementById("creator-name");
+      const cName = nameInput.value.trim() || "我";
+      if (builderSlots.length !== 5) {
+        // Default 5 slots pick 5 varied questions from the bank
+        const defaultIds = [0, 2, 5, 7, 4];
+        builderSlots = defaultIds.map(id => {
+          const b = QUESTION_BANK[id];
+          return {
+            bankId: id,
+            isCustom: false,
+            title: formatTitleWithName(b.title, cName),
+            options: b.options.map(o => formatTitleWithName(o, cName)),
+            answer: b.answer
+          };
+        });
+      }
+      populateBankDropdown();
+      renderSlotTabs();
+      renderCurrentSlotEditor();
+      document.getElementById("share-result-box").classList.remove("show");
+    }
+
+    function populateBankDropdown() {
+      const sel = document.getElementById("bank-select");
+      sel.innerHTML = "";
+      QUESTION_BANK.forEach((b, idx) => {
+        const opt = document.createElement("option");
+        opt.value = String(idx);
+        opt.textContent = `${b.cat}：${b.title.slice(0, 16)}...`;
+        sel.appendChild(opt);
+      });
+      const customOpt = document.createElement("option");
+      customOpt.value = "custom";
+      customOpt.textContent = "✏️ 自定义题目（自由手写）";
+      sel.appendChild(customOpt);
+    }
+
+    function renderSlotTabs() {
+      const wrap = document.getElementById("slot-tabs");
+      wrap.innerHTML = "";
+      for (let i = 0; i < 5; i++) {
+        const b = document.createElement("button");
+        b.className = "slot-tab" + (i === currentSlot ? " active" : "");
+        b.textContent = `第 ${i + 1} 题`;
+        b.addEventListener("click", () => {
+          currentSlot = i;
+          renderSlotTabs();
+          renderCurrentSlotEditor();
+        });
+        wrap.appendChild(b);
+      }
+    }
+
+    function renderCurrentSlotEditor() {
+      const slot = builderSlots[currentSlot];
+      document.getElementById("slot-editor-label").textContent = `正在设置：第 ${currentSlot + 1} / 5 题`;
+      const sel = document.getElementById("bank-select");
+      sel.value = slot.isCustom ? "custom" : String(slot.bankId);
+
+      const titleInput = document.getElementById("edit-q-title");
+      titleInput.value = slot.title;
+
+      const list = document.getElementById("opt-edit-list");
+      list.innerHTML = "";
+      slot.options.forEach((optText, idx) => {
+        const row = document.createElement("div");
+        row.className = "opt-edit-row";
+
+        const radio = document.createElement("button");
+        radio.type = "button";
+        radio.className = "ans-radio" + (slot.answer === idx ? " checked" : "");
+        radio.innerHTML = (slot.answer === idx ? "✅ 答案 " : "⚪ 选项 ") + (LETTERS[idx] || (idx + 1));
+        radio.addEventListener("click", () => {
+          slot.answer = idx;
+          renderCurrentSlotEditor();
+        });
+
+        const inp = document.createElement("input");
+        inp.type = "text";
+        inp.className = "input-text";
+        inp.style.padding = "8px 10px";
+        inp.style.fontSize = "13.5px";
+        inp.value = optText;
+        inp.placeholder = `输入选项 ${LETTERS[idx] || (idx + 1)}...`;
+        inp.addEventListener("input", () => {
+          slot.options[idx] = inp.value;
+          slot.isCustom = true;
+          sel.value = "custom";
+        });
+
+        row.appendChild(radio);
+        row.appendChild(inp);
+
+        if (slot.options.length > 2) {
+          const del = document.createElement("button");
+          del.type = "button";
+          del.className = "btn-del-opt";
+          del.textContent = "×";
+          del.title = "删除此选项";
+          del.addEventListener("click", () => {
+            slot.options.splice(idx, 1);
+            if (slot.answer >= slot.options.length) slot.answer = 0;
+            slot.isCustom = true;
+            renderCurrentSlotEditor();
+          });
+          row.appendChild(del);
+        }
+
+        list.appendChild(row);
+      });
+
+      document.getElementById("btn-add-opt").style.display = slot.options.length >= 4 ? "none" : "inline-block";
+    }
+
+    document.getElementById("bank-select").addEventListener("change", (e) => {
+      const val = e.target.value;
+      const slot = builderSlots[currentSlot];
+      const cName = document.getElementById("creator-name").value.trim() || "我";
+      if (val === "custom") {
+        slot.isCustom = true;
+      } else {
+        const id = parseInt(val, 10);
+        const b = QUESTION_BANK[id];
+        if (b) {
+          slot.bankId = id;
+          slot.isCustom = false;
+          slot.title = formatTitleWithName(b.title, cName);
+          slot.options = b.options.map(o => formatTitleWithName(o, cName));
+          slot.answer = b.answer;
+          renderCurrentSlotEditor();
+        }
+      }
+    });
+
+    document.getElementById("btn-custom-blank").addEventListener("click", () => {
+      const slot = builderSlots[currentSlot];
+      slot.isCustom = true;
+      slot.title = "";
+      slot.options = ["", ""];
+      slot.answer = 0;
+      renderCurrentSlotEditor();
+      document.getElementById("edit-q-title").focus();
+    });
+
+    document.getElementById("edit-q-title").addEventListener("input", (e) => {
+      const slot = builderSlots[currentSlot];
+      slot.title = e.target.value;
+      slot.isCustom = true;
+      document.getElementById("bank-select").value = "custom";
+    });
+
+    document.getElementById("btn-add-opt").addEventListener("click", () => {
+      const slot = builderSlots[currentSlot];
+      if (slot.options.length < 4) {
+        slot.options.push("");
+        slot.isCustom = true;
+        renderCurrentSlotEditor();
+      }
+    });
+
+    document.getElementById("creator-name").addEventListener("input", (e) => {
+      const cName = e.target.value.trim();
+      builderSlots.forEach(s => {
+        if (!s.isCustom && typeof s.bankId === "number" && QUESTION_BANK[s.bankId]) {
+          const b = QUESTION_BANK[s.bankId];
+          s.title = formatTitleWithName(b.title, cName);
+          s.options = b.options.map(o => formatTitleWithName(o, cName));
+        }
+      });
+      renderCurrentSlotEditor();
+    });
+
+    document.getElementById("btn-random-all").addEventListener("click", () => {
+      const cName = document.getElementById("creator-name").value.trim();
+      // Keep id=14 ("终极评价") out of slots 1-4 so it only ever appears as the 5th finale question
+      const poolFirst4 = QUESTION_BANK.map((_, i) => i).filter(i => i !== 14);
+      for (let i = poolFirst4.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [poolFirst4[i], poolFirst4[j]] = [poolFirst4[j], poolFirst4[i]];
+      }
+      const picked = poolFirst4.slice(0, 4);
+      const remaining = QUESTION_BANK.map((_, i) => i).filter(i => !picked.includes(i));
+      picked.push(remaining[Math.floor(Math.random() * remaining.length)]);
+
+      builderSlots = picked.map(id => {
+        const b = QUESTION_BANK[id];
+        return {
+          bankId: id,
+          isCustom: false,
+          title: formatTitleWithName(b.title, cName),
+          options: b.options.map(o => formatTitleWithName(o, cName)),
+          answer: b.answer
+        };
+      });
+      renderCurrentSlotEditor();
+      showToast("已为你随机搭配 5 道好题！");
+    });
+
+    document.getElementById("btn-generate-link").addEventListener("click", () => {
+      const u = document.getElementById("creator-name").value.trim();
+      for (let i = 0; i < builderSlots.length; i++) {
+        const s = builderSlots[i];
+        if (!s.title.trim()) {
+          currentSlot = i;
+          renderSlotTabs();
+          renderCurrentSlotEditor();
+          showToast(`第 ${i + 1} 题的题目还没填哦！`);
+          return;
+        }
+        const validOpts = s.options.map(o => o.trim()).filter(Boolean);
+        if (validOpts.length < 2) {
+          currentSlot = i;
+          renderSlotTabs();
+          renderCurrentSlotEditor();
+          showToast(`第 ${i + 1} 题至少要填 2 个选项哦！`);
+          return;
+        }
+      }
+
+      const qPayload = builderSlots.map(s => {
+        if (!s.isCustom && typeof s.bankId === "number") {
+          return [s.bankId, s.answer];
+        }
+        return [s.title.trim(), s.options.map(o => o.trim() || "选项"), s.answer];
+      });
+
+      const code = encodeConfig({ u, q: qPayload });
+      const baseUrl = window.location.origin + window.location.pathname;
+      lastGeneratedUrl = `${baseUrl}?c=${code}`;
+
+      document.getElementById("share-url-preview").textContent = lastGeneratedUrl;
+      document.getElementById("share-result-box").classList.add("show");
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(lastGeneratedUrl).then(() => {
+          showToast("专属永久链接已复制，快发给朋友！");
+        }).catch(() => {
+          showToast("已生成！请长按下方链接复制");
+        });
+      } else {
+        showToast("已生成专属链接！");
+      }
+    });
+
+    document.getElementById("btn-copy-generated").addEventListener("click", () => {
+      if (!lastGeneratedUrl) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(lastGeneratedUrl).then(() => showToast("已复制到剪贴板！"));
+      } else {
+        showToast("请长按链接文字复制");
+      }
+    });
+
+    document.getElementById("btn-preview-generated").addEventListener("click", () => {
+      if (lastGeneratedUrl) {
+        window.location.href = lastGeneratedUrl;
+      }
+    });
+
+    function openBuilder() {
+      video.pause();
+      if (danmakuTimer) clearInterval(danmakuTimer);
+      initBuilder();
+      showScreen(screenBuilder);
+    }
+
+    document.getElementById("link-open-builder-start").addEventListener("click", openBuilder);
+    document.getElementById("btn-open-builder-prank").addEventListener("click", openBuilder);
+    document.getElementById("btn-builder-back").addEventListener("click", () => {
+      showScreen(screenStart);
+    });
+
+    // ================= Standard Quiz Event Listeners =================
     document.getElementById("btn-start").addEventListener("click", () => {
       try { video.load(); } catch (e) {}
       currentIdx = 0;
@@ -790,18 +1582,15 @@
 
     document.getElementById("btn-copy").addEventListener("click", () => {
       const url = window.location.href;
-      const showToast = (msg) => {
-        const t = document.getElementById("toast");
-        t.textContent = msg;
-        t.classList.add("show");
-        setTimeout(() => t.classList.remove("show"), 2000);
-      };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(url).then(() => showToast("已复制链接，快去坑下一个人！")).catch(() => showToast("长按浏览器地址栏复制链接发群里！"));
       } else {
         showToast("点右上角转发或复制链接发给朋友！");
       }
     });
+
+    // Boot
+    loadQuizFromUrl();
   </script>
 </body>
 </html>
